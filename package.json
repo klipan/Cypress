@@ -1,0 +1,15 @@
+{
+  "name": "adevacypress",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "cypress:open": "cypress open"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^13.4.0",
+    "typescript": "^5.7.3"
+  },
+  "description": ""
+}
