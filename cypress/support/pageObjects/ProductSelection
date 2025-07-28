@@ -1,0 +1,23 @@
+class ProductSelection {
+  visit() {
+    cy.visit('https://practicesoftwaretesting.com/'); // promeni u tvoju URL rutu
+  }
+
+  ime(text) {
+    cy.get('#search-query').type(text);
+  }
+
+  search() {
+    cy.get('[data-test="search-submit"]').click();
+  }
+
+  select(productName) {
+    cy.get('a').contains(productName).click();
+  }
+
+  verify(name) {
+    cy.get('[data-test="product-name"]').should('have.text',name);
+  }
+}
+export default new ProductSelection();
+

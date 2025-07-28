@@ -1,0 +1,21 @@
+class QuantitySelection {
+
+  quantity(number) {
+    cy.get('[data-test="quantity"]').clear().type(number);
+  }
+
+  search() {
+    cy.get('[data-test="search-submit"]').click();
+  }
+
+  addToCart() {
+    cy.get('[data-test="add-to-cart"]').click();
+  }
+
+  verifyMessage(text) {
+    cy.get('[role="alert"]').should('have.text',text);
+  }
+
+}
+export default new QuantitySelection();
+
