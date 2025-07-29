@@ -1,6 +1,6 @@
 class QuantitySelection {
 
-  quantity(number) {
+  enterQuantity(number) {
     cy.get('[data-test="quantity"]').clear().type(number);
   }
 
@@ -16,6 +16,12 @@ class QuantitySelection {
     cy.get('[role="alert"]').should('have.text',text);
   }
 
-}
+  quantity(number, text) {
+    this.enterQuantity(number);
+    this.addToCart();
+    this.verifyMessage(text);
+  }
+  }
+
 export default new QuantitySelection();
 

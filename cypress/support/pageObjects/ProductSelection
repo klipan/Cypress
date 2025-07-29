@@ -1,6 +1,6 @@
 class ProductSelection {
   visit() {
-    cy.visit('https://practicesoftwaretesting.com/'); // promeni u tvoju URL rutu
+    cy.visit('https://practicesoftwaretesting.com/');
   }
 
   ime(text) {
@@ -18,6 +18,15 @@ class ProductSelection {
   verify(name) {
     cy.get('[data-test="product-name"]').should('have.text',name);
   }
-}
+
+  selection(text, productName, name) {
+    this.visit();
+    this.ime('Thor Hammer')
+    this.search();
+    this.select('Thor Hammer');
+    this.verify('Thor Hammer');
+  }
+  }
+
 export default new ProductSelection();
 

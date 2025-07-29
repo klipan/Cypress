@@ -1,16 +1,16 @@
 import ProductSelection from '../support/pageObjects/ProductSelection';
 import quantity from '../support/pageObjects/quantity';
 
-describe('autotest', () => {
-    it('search product', () => {
-        ProductSelection.visit('/');
-        ProductSelection.ime('Thor Hammer')
-        ProductSelection.search();
-        ProductSelection.select('Thor Hammer');
-        ProductSelection.verify('Thor Hammer');
-        quantity.quantity(10);
-        quantity.addToCart();
-        quantity.verifyMessage(' You can only have one Thor Hammer in the cart. ')
+describe('negative', () => {
+    it('error message', () => {
+        ProductSelection.selection('Hammer', 'Thor Hammer', 'Thor Hammer')
+        quantity.quantity('10', ' You can only have one Thor Hammer in the cart. ')
+    });
+});
+describe('positive', () => {
+    it('successfully added', () => {
+        ProductSelection.selection('Hammer', 'Thor Hammer', 'Thor Hammer')
+        quantity.quantity('1', ' Product added to shopping cart. ')
 
 
     //  cy.get('[data-test="quantity"]').click();
@@ -18,5 +18,6 @@ describe('autotest', () => {
      // cy.get('[data-test="quantity"]').clear().type('10');
      // cy.get('[data-test="quantity"]').clear().type('11');
      // cy.get('[data-test="add-to-cart"]').click();
-    })
-  })
+
+    });
+});
