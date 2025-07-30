@@ -1,5 +1,6 @@
 import ProductSelection from '../support/pageObjects/ProductSelection';
 import quantity from '../support/pageObjects/quantity';
+import Cart from '../support/pageObjects/Cart';
 
 describe('negative', () => {
     it('error message', () => {
@@ -11,6 +12,8 @@ describe('positive', () => {
     it('successfully added', () => {
         ProductSelection.selection('Hammer', 'Thor Hammer', 'Thor Hammer')
         quantity.quantity('1', ' Product added to shopping cart. ')
+        Cart.cart();
+
 
 
     //  cy.get('[data-test="quantity"]').click();
